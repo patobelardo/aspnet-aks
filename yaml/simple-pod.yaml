@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sampleapp-frontend
+  labels:
+    name: sampleapp-frontend
+spec:
+  containers:
+  - name: sampleapp-frontend
+    image: commonaksacr.azurecr.io/aspnet-sampleapp/frontend:latest
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "500m"
+      limits:
+        memory: "1024Mi"
+        cpu: "1000m"
+    ports:
+      - containerPort: 80
+  nodeSelector:
+    kubernetes.io/os: windows
+  tolerations:
+    - key: "os"
+      operator: "Equal"
+      value: "windows"
+      effect: "NoSchedule"
