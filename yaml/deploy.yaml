@@ -25,3 +25,5 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+    nodeSelector:
+      kubernetes.io/os: windows
