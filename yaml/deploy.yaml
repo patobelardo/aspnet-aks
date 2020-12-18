@@ -14,10 +14,14 @@ spec:
     spec:
       containers:
       - name: sampleapp-frontend
-        image: <Image>
+        image: imagename:latest
+        imagePullPolicy: Always
+        env:
+          - name: VARIABLENAME
+            value: "Variable Value"
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: <Port>
+        - containerPort: 80
